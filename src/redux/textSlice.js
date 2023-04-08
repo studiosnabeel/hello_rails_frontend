@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import getData from "./getData";
+import { createSlice } from '@reduxjs/toolkit';
+import getData from './getData';
 
 const textSlice = createSlice({
   name: 'text',
@@ -7,11 +7,11 @@ const textSlice = createSlice({
     data: {},
   },
   extraReducers: (builder) => {
-    builder.addCase(getData:isFulfilled, (state, action) => {
+    builder.addCase(getData.fulfilled, (state, action) => {
       if (action.payload) {
         return { ...state, data: action.payload.data };
       }
-      return { ...state, error: action.payload }
+      return { ...state, error: action.payload };
     });
   },
 });
